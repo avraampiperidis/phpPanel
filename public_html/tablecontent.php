@@ -1,12 +1,19 @@
 
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <script src="javascript/js.js"></script>
     <link rel="stylesheet" type="text/css" href="styles/styles.css"/>
 
 </head>
 <body>
+
+<script src="../resources/bootstrap/js/bootstrap.min.js"></script>
 
 <input type="button" value="go back" onclick="goback()" />
 <br>
@@ -34,7 +41,8 @@ if(isset($username)) {
 
     $info = $db->query("show columns from " . $table);
 
-    echo "<table border='1' style='width:100%'>";
+    echo '<div class="table-responsive">';
+    echo "<table border='1' style='width:100%' class='table'>";
 
     $cols = array();
 
@@ -68,6 +76,7 @@ if(isset($username)) {
 
 
     echo "</table>";
+    echo "</div>";
 
 
 } else {
