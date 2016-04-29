@@ -5,4 +5,4 @@ At the moment it has the following capabilities<br>
 *choose database<br>
 *show table contents<br>
 *truncate table<br>
-*import sql file<br>
+*upload/import sql file<br>
