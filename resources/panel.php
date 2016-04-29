@@ -1,6 +1,6 @@
 <?php
 
 $paneluser = "username";
-$panelpasswd = "password";
+$panelpasswd = sha1("password");
 
 ?>
