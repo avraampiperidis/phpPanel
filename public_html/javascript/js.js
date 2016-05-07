@@ -10,6 +10,25 @@ function logout() {
 
 }
 
+
+function exportsql(table) {
+
+    $.ajax({
+        url: 'exportsql.php?table='+table,
+        success: function(data) {
+            alert(data);
+            //get url sql file
+
+            //try to download the url sql file
+
+            //do download
+
+            //if success call deletesqlfile.php ajax
+        }
+    })
+
+}
+
 function truncate(table) {
 
     if(confirm('TRUNCATE TABLE '+table+"??")) {
