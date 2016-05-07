@@ -40,4 +40,27 @@ function dirstat2() {
 
 }
 
+
+function dirstat3() {
+
+
+    $dir    = './';
+    $files1 = scandir($dir);
+    $lenght = count($files1);
+
+    for( $i =2; $i < $lenght ; $i++) {
+
+        if (strpos($files1[$i],'.sql')) {
+            echo '<pre><p class="button-link2" >';
+            echo " ";
+            echo '<font color="blue"> <b  > delete sql file</b> </font>';
+            echo '    <a  href="','../deletefile.php?file='.$files1[$i],'">'.$files1[$i].' ';
+            echo '</a> </p></pre>';
+        }
+
+    }
+
+
+}
+
 ?>

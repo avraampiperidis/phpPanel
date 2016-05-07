@@ -16,18 +16,49 @@ function exportsql(table) {
     $.ajax({
         url: 'exportsql.php?table='+table,
         success: function(data) {
-            alert(data);
-            //get url sql file
 
-            //try to download the url sql file
+            if(data != "-1") {
+                saveToDisk(data,table+'.sql');
+            }
 
-            //do download
-
-            //if success call deletesqlfile.php ajax
         }
     })
 
 }
+
+
+function saveToDisk(fileURL, fileName) {
+    // for non-IE
+    if (!window.ActiveXObject) {
+        var save = document.createElement('a');
+        save.href = fileURL;
+        save.target = '_blank';
+        save.download = fileName || 'unknown';
+
+        try {
+            var evt = new MouseEvent('click', {
+                'view': window,
+                'bubbles': true,
+                'cancelable': false
+            });
+            save.dispatchEvent(evt);
+
+            (window.URL || window.webkitURL).revokeObjectURL(save.href);
+
+        } catch(ex) {
+            window.open(fileURL, fileName);
+        }
+    }
+
+    // for IE < 11
+    else if ( !! window.ActiveXObject && document.execCommand)     {
+        var _window = window.open(fileURL, '_blank');
+        _window.document.close();
+        _window.document.execCommand('SaveAs', true, fileName || fileURL)
+        _window.close();
+    }
+}
+
 
 function truncate(table) {
 

@@ -3,12 +3,13 @@
 
 session_start();
 require ("../resources/conf.php");
+include ("dumper.php");
 
 $username = $_SESSION["username"];
 $table = $_GET["table"];
 if(isset($username)) {
 
-    $db = mysqli_connect($host,$db_user,$passwd,$db);
+    $dbc = mysqli_connect($host,$db_user,$passwd,$db);
 
     if(mysqli_connect_errno()) {
         echo "error could not connect".mysqli_connect_error();
@@ -17,15 +18,23 @@ if(isset($username)) {
     $file = './data/'.$table.'.sql';
     fopen($file,"w");
 
-    //$result = mysqli_query($db,"SELECT * INTO OUTFILE '$file' FROM `$table`");
+    try {
 
-    //havent't tested yet
-    exec("mysqldump --opt -h $host -u $db_user -p $passwd $db  > ".$file);
+        $countries_dumper = Shuttle_Dumper::create(array(
+            'host' => $host,
+            'username' => $db_user,
+            'password' => $passwd,
+            'db_name' => $db,
+            'include_tables' => array($table),
+        ));
 
-    //echo the sql url file back
+        $countries_dumper->dump($file);
+
+    } catch(Shuttle_Exception $ex) {
+        echo "-1";
+    }
+
     echo $file;
-
-    //unlink('data/'.$file);
 
 }
 

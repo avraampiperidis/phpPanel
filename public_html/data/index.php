@@ -37,17 +37,21 @@ require ('./uploader.php');
 	<tr>
 		<td style="width: 35px">
 		</td>
-		<td style="width: 200px">
+		<td style="width: 180px">
 		
 		<?php dirstat(); ?>
 		</td>
-		<td style="width: 21px">&nbsp;</td>
-		<td style="width: 100px">
+		<td style="width: 20px">&nbsp;</td>
+		<td style="width: 85px">
 		<?php dirstat2(); ?>
 		</td>
-		<td style="width: 23px">
+		<td style="width: 20px">
 		</td>
-		<td style="width: 349px">
+		<td style="width: 85px">
+			<?php dirstat3(); ?>
+		</td>
+
+		<td style="width: 300px">
 		<table id="table" style="display:none"><tr><td>
 		
 		<form enctype="multipart/form-data"  method="POST"  class="form-container" >

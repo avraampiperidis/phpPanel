@@ -10,10 +10,14 @@
     <script src="../resources/jquery.min.js"></script>
     <script src="javascript/js.js"></script>
 
+
+
 </head>
 
 <body>
 <script src="../resources/bootstrap/js/bootstrap.min.js"></script>
+
+
 
 <?php
 
@@ -58,10 +62,8 @@ if(isset($username)) {
     while($table = mysqli_fetch_array($result)) {
         $numrows = $db->query('select *  FROM '.$table[0]);
         echo $table[0]. "(". mysqli_num_rows($numrows) .")" ."<input style='margin:5px;' type='button' value='show' onClick='showtablecontent(".'"'.$table[0].'"'.")' />" .
-            "<input style='margin:5px;' type='button' value='exportSql' onClick='exportsql(".'"'.$table[0].'"'.")' />".
-            /*
-            "<input style='margin:5px;' type='button' value='truncate' onClick='truncate(".'"'.$table[0].'"'.")' />".
-            */
+            "<input id='".$table[0]."' style='margin:5px;' type='button' value='exportSql' onClick='exportsql(".'"'.$table[0].'"'.")' />".
+            "<input style='margin:5px;'  type='button' value='truncate' onClick='truncate(".'"'.$table[0].'"'.")' />".
             "<br>";
     }
 
