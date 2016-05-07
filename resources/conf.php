@@ -15,7 +15,8 @@ if(isset($changedb)) {
     $db_user = "dbuser";
     $passwd = "dbpassword";
     $host = "127.0.0.1";
-    $db = "database";
+    //default is mysql database
+    $db = "mysql";
 
 }
 
