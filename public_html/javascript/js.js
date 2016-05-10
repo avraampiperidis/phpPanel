@@ -60,6 +60,14 @@ function saveToDisk(fileURL, fileName) {
 }
 
 
+function executesql() {
+
+    var query = document.getElementById('query');
+    window.location.href = 'executesql.php?query='+query.value;
+
+}
+
+
 function truncate(table) {
 
     if(confirm('TRUNCATE TABLE '+table+"??")) {

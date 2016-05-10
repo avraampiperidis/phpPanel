@@ -18,7 +18,6 @@
 <script src="../resources/bootstrap/js/bootstrap.min.js"></script>
 
 
-
 <?php
 
 session_start();
@@ -54,7 +53,13 @@ if(isset($username)) {
     <br>
     <br>
 
-<?php
+    <button type="button" style="color: red" value="execute sql query" onclick="executesql()">execute sql query</button>
+    <textarea id="query" rows="4" cols="50" ></textarea>
+
+    <br>
+    <br>
+
+    <?php
 
 
     $result = $db->query("show tables");
@@ -67,12 +72,9 @@ if(isset($username)) {
             "<br>";
     }
 
-
 } else {
     header("Location: gate.php");
 }
-
-
 
 ?>
 
