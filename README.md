@@ -1,5 +1,5 @@
 # phpPanel
-a very light,simple,fast mysql administration tool<br>
+a very light,simple,fast phpmysql administration tool<br>
 
 At the moment it has the following capabilities<br>
 *choose database<br>
